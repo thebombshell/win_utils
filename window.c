@@ -1,17 +1,15 @@
 
 #include "window.h"
 
-#include "log.h"
-
 #include <assert.h>
 
-int window_is_valid(window* t_window) {
-
+int window_is_valid(window* t_window)
+{
 	return t_window && IsWindow(t_window->handle);
 }
 
-int init_window(window* t_window, WNDPROC t_proc) {
-	
+int init_window(window* t_window, WNDPROC t_proc)
+{	
 	assert(t_window);
 	
 	WNDCLASSEX window_class;
@@ -40,18 +38,17 @@ int init_window(window* t_window, WNDPROC t_proc) {
 		1280,
 		720, 0, 0, window_class.hInstance, 0);
 	
-	
-	if (!t_window->handle) {
-		
-		ERR("failed to create window");
+	if (!t_window->handle)
+	{		
 		return 0;
 	}
+	
 	ShowWindow(t_window->handle, SW_SHOW);
 	return 1;
 }
 
-void final_window(window* t_window) {
-	
+void final_window(window* t_window)
+{	
 	assert(window_is_valid(t_window));
 	
 	DestroyWindow(t_window->handle);
