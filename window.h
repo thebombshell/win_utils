@@ -1,6 +1,6 @@
 
-#ifndef SMOL_WINDOW_H
-#define SMOL_WINDOW_H
+#ifndef WIN_UTILS_WINDOW_H
+#define WIN_UTILS_WINDOW_H
 
 #include <windows.h>
 
